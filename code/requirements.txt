@@ -1,0 +1,6 @@
+torch # llm
+transformers # llm 
+pillow # llm
+accelerate #llm
+einops #llm
+opencv-python # for camera interaction
