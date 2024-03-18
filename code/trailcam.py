@@ -74,7 +74,7 @@ def get_image():
 #---------------------------------------------------------------------------
 def run():
     question='Are there any cats in this image?'
-    max_images=10
+    max_images=100
     image_count=0
     # load the llm components
     model,tokenizer=load_llm()

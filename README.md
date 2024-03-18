@@ -9,6 +9,8 @@ relatively poor images from my laptop webcam.
 This repo is more of a proof of concept than anything serious, but this could extended to be a 
 pretty amazing trailcam or security camera system.
 
+![screenshot](/screenshots/ai_output.png "IMG output")
+
 ## usage 
 -(linux) sh run.sh
 
