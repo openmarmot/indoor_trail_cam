@@ -2,7 +2,7 @@
 using  the IMP LLM to take pictures of my cat
 
 ## about
-I wanted to explore using the excellent IMP AI Image recognition model with a web cam.
+I wanted to explore using the excellent IMP AI Image recognition model with a laptop web cam.
 This turned out to be fairly easy, and the IMP model is surprising good at this task - even for 
 relatively poor images from my laptop webcam.
 
