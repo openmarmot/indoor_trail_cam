@@ -22,9 +22,15 @@ import time
 #---------------------------------------------------------------------------
 def analyze_image(question,image,model,tokenizer):
     '''analyze an image with a LLM'''
-    #Set inputs
+    
+    # prompt format for the v1.3 model
     system_prompt="A chat between a curious user and an assistant. The assistant gives helpful, detailed answers to the user's questions."
     text = system_prompt+' USER: <image>\n'+question+' ASSISTANT:'
+
+    # prompt format for the new v1.5 models
+    #system_prompt="<|im_start|>system\nA chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.<|im_end|>"
+    #text = system_prompt+"\n<|im_start|>user\n<image>\n"+question+"<|im_end|>\n<|im_start|>assistant"
+
     #image = Image.open(image_path)
 
     input_ids = tokenizer(text, return_tensors='pt').input_ids
@@ -43,15 +49,15 @@ def analyze_image(question,image,model,tokenizer):
 #---------------------------------------------------------------------------
 def load_llm():
     '''load the LLM model and tokenizer'''
+    model_name="MILVLG/imp-v1-3b"
+
     model = AutoModelForCausalLM.from_pretrained(
-        "MILVLG/imp-v1-3b", 
+        model_name, 
         torch_dtype=torch.float32, #note this is optimized for cpu not gpu
         device_map="auto",
         trust_remote_code=True)
-    tokenizer = AutoTokenizer.from_pretrained("MILVLG/imp-v1-3b", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     return model,tokenizer  
-
-
 
 #---------------------------------------------------------------------------
 def get_image():
@@ -79,7 +85,6 @@ def run():
     # load the llm components
     model,tokenizer=load_llm()
 
-
     # main loop 
     running=True
     while running:
@@ -95,7 +100,7 @@ def run():
                 print('SUCCESS')
                 time_stamp=datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 
-                image.save('./images/cat_sighting'+time_stamp+'.jpg')
+                image.save('./images/cat_sighting_'+time_stamp+'.jpg')
                 image_count+=1
                 print('current image count: '+str(image_count))
                 if image_count>max_images:
@@ -106,11 +111,8 @@ def run():
         # sleep for 30 seconds
         time.sleep(30)
 
-
     # cleanup
     model=None
     tokenizer=None
-
-
 
 run()

@@ -1,5 +1,5 @@
 torch # llm
-transformers # llm 
+transformers==4.39.2 # llm 
 pillow # llm
 accelerate #llm
 einops #llm
