@@ -3,7 +3,8 @@ Indoor Trail Cam  : Change Log
 ----------------------------------
 Dec 06 2024
 - made image time stamp more readable 
-- switched the transformers model to v4.39.2. Newer versions are no longer compatible with this model. 
+- switched the transformers model to v4.39.2. Newer versions are no longer compatible with this model.
+- updated readme screenshot to show a actual image that the software detected a cat in and then saved to a file
 
 I attempted to upgrade to the newer IMP V1.5 model series but I was unable to get the sample code 
 for it to run.
