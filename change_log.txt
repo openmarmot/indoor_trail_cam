@@ -1,6 +1,20 @@
 Indoor Trail Cam  : Change Log
 
 ----------------------------------
+Jan 02 2025
+- added trailcam-pi.py for raspberry pi devices
+- venv now brings in host packages - required for pi camera to work 
+
+I spent several hours working on porting this over to work on a raspberry pi 5 but 
+was ultimately unsuccessful. I think the code should work - or is close to working 
+but I exceeded the pi-5 memory (8gb). Running tests on my laptop suggegsts the model 
+may need more like 12-14 GB.
+
+I decided to add this to the repo anyways in case someone wants to pick up where I left 
+off and try a smaller model. 
+
+
+----------------------------------
 Dec 06 2024
 - made image time stamp more readable 
 - switched the transformers model to v4.39.2. Newer versions are no longer compatible with this model.

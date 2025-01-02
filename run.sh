@@ -7,7 +7,9 @@ mkdir -p images
 # Check if the virtual environment directory exists
 if [ ! -d "venv" ]; then
     # Start the venv only if it doesn't exist
-    python -m venv venv
+    # pull in existing python packages
+    # this is needed on the pi for picamera2 to work
+    python3 -m venv --system-site-packages venv
 fi
 
 # activate the virtual environment
